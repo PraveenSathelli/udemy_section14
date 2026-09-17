@@ -1,5 +1,5 @@
 import { Routes } from "@angular/router";
-import { TasksComponent } from "../tasks/tasks.component";
+import { resolveUserTasks, TasksComponent } from "../tasks/tasks.component";
 import { NewTaskComponent } from "../tasks/new-task/new-task.component";
 import { resolveUserName } from "./user-tasks/user-tasks.component";
 
@@ -14,7 +14,7 @@ export const routes: Routes = [
         path: 'tasks', // <domain>/users/<uid>/tasks
         component: TasksComponent,
         resolve:{
-            userTasks:resolveUserName
+            userTasks:resolveUserTasks
         }
     },
     {

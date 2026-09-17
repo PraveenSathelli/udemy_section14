@@ -2,6 +2,7 @@ import {
   Component,
   inject,
   input,
+  OnInit,
 } from '@angular/core';
 import { ResolveFn, RouterLink } from '@angular/router';
 
@@ -20,6 +21,7 @@ export class TasksComponent {
   userTasks = input.required<Task[]>();
   userId = input.required<string>();
   order = input<'asc' | 'desc' | undefined>();
+  
 }
 
 export const resolveUserTasks: ResolveFn<Task[]> = (
