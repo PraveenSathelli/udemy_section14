@@ -7,13 +7,14 @@ import { ActivatedRoute, RouterLink, RouterOutlet } from '@angular/router';
   standalone: true,
   templateUrl: './user-tasks.component.html',
   styleUrl: './user-tasks.component.css',
-  imports:[RouterOutlet,RouterLink]
+  imports: [RouterOutlet, RouterLink]
 })
 export class UserTasksComponent implements OnInit {
   userId = input.required<string>();
+  message = input.required<string>();
   private userService = inject(UsersService);
   private activatedRoute = inject(ActivatedRoute);
-  private destroyRef= inject(DestroyRef);
+  private destroyRef = inject(DestroyRef);
   userName = '';
 
   // userName = computed(() => {
@@ -21,7 +22,8 @@ export class UserTasksComponent implements OnInit {
   // });
 
   ngOnInit(): void {
-   const subscribtion = this.activatedRoute.paramMap.subscribe({
+    console.log("message from route :" + this.message());
+    const subscribtion = this.activatedRoute.paramMap.subscribe({
       next: paramMap => {
         this.userName = this.userService.users.find((u) => u.id === paramMap.get('userId'))?.name || '';
       }

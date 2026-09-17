@@ -12,7 +12,10 @@ export const routes: Routes = [
     {
         path: 'users/:userId', //users/u1,
         component: UserTasksComponent,
-        children: userRoutes
+        children: userRoutes,
+        data: {
+            message: 'Hello! static data'
+        }
     },
     {
         path: '**',
