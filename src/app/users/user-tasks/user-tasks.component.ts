@@ -9,11 +9,11 @@ import { ActivatedRoute, ActivatedRouteSnapshot, ResolveFn, RouterLink, RouterOu
   styleUrl: './user-tasks.component.css',
   imports: [RouterOutlet, RouterLink]
 })
-export class UserTasksComponent {
+export class UserTasksComponent implements OnInit{
   userId = input.required<string>();
   message = input.required<string>();
   // private userService = inject(UsersService);
-  // private activatedRoute = inject(ActivatedRoute);
+   private activatedRoute = inject(ActivatedRoute);
   // private destroyRef = inject(DestroyRef);
    userName = input.required<string>();
 
@@ -21,7 +21,10 @@ export class UserTasksComponent {
   //   return this.userService.users.find(u => u.id == this.userId())?.name;
   // });
 
-  // ngOnInit(): void {
+   ngOnInit(): void {
+  // this.activatedRoute.data.subscribe({next:(data) =>{
+  //   console.log(data);
+  // }})
   //   console.log("message from route :" + this.message());
   //   const subscribtion = this.activatedRoute.paramMap.subscribe({
   //     next: paramMap => {
@@ -32,7 +35,7 @@ export class UserTasksComponent {
   //   this.destroyRef.onDestroy(() => subscribtion.unsubscribe())
 
   //   console.log(this.userId() + " user name")
-  // }
+   }
 
 }
 
