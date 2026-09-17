@@ -13,6 +13,7 @@ export const routes: Routes = [
     {
         path: 'tasks', // <domain>/users/<uid>/tasks
         component: TasksComponent,
+        runGuardsAndResolvers:'always',
         resolve:{
             userTasks:resolveUserTasks
         }
