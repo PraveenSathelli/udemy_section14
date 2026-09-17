@@ -25,7 +25,7 @@ export const routes: Routes = [
         path: 'users/:userId', //users/u1,
         component: UserTasksComponent,
         children: userRoutes,
-        canMatch: [dummyMatch],
+        // canMatch: [dummyMatch],
         // canActivate:[dummyMatch],
         data: {
             message: 'Hello! static data'
