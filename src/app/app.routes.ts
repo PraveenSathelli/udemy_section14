@@ -3,11 +3,12 @@ import { NoTaskComponent } from "./tasks/no-task/no-task.component";
 import { resolveUserName, UserTasksComponent } from "./users/user-tasks/user-tasks.component";
 import { NotFoundComponent } from "./shared/not-found/not-found.component";
 import { routes as userRoutes } from './users/users.routes';
+import { resolveTitle } from "./tasks/tasks.component";
 
 export const routes: Routes = [
     {
         path: '',
-        component: NoTaskComponent
+        component: NoTaskComponent,
     },
     {
         path: 'users/:userId', //users/u1,
@@ -19,7 +20,8 @@ export const routes: Routes = [
         resolve: {
             userName: resolveUserName,
             // someother: resolverLastName
-        }
+        },
+        title: resolveTitle
     },
     {
         path: '**',

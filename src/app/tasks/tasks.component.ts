@@ -9,6 +9,7 @@ import { ResolveFn, RouterLink } from '@angular/router';
 import { TaskComponent } from './task/task.component';
 import { TasksService } from './tasks.service';
 import { Task } from './task/task.model';
+import { resolveUserName } from '../users/user-tasks/user-tasks.component';
 
 @Component({
   selector: 'app-tasks',
@@ -21,7 +22,7 @@ export class TasksComponent {
   userTasks = input.required<Task[]>();
   userId = input.required<string>();
   order = input<'asc' | 'desc' | undefined>();
-  
+
 }
 
 export const resolveUserTasks: ResolveFn<Task[]> = (
@@ -44,3 +45,10 @@ export const resolveUserTasks: ResolveFn<Task[]> = (
 
   return tasks.length ? tasks : [];
 };
+
+export const resolveTitle: ResolveFn<string> = (
+  activatedRouteSnapshot,
+  routerState
+) => {
+  return resolveUserName(activatedRouteSnapshot, routerState) + '\'s Tasks'
+}
